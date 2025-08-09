@@ -17,6 +17,10 @@ public:
 	// Sets default values for this pawn's properties
 	ABaseMonster();
 
+private:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Monster", meta = (AllowPrivateAccess = "true"))
+	float MaxHealth = 100.0f;
+	float CurrentHealth{};
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
