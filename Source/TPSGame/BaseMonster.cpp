@@ -15,7 +15,8 @@ ABaseMonster::ABaseMonster()
 void ABaseMonster::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	CurrentHealth = MaxHealth;
+	EEnemyState::Idle;
 }
 
 // Called every frame
@@ -30,5 +31,33 @@ void ABaseMonster::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void ABaseMonster::SetEnemyState_Implementation(EEnemyState NewState)
+{
+}
+
+EEnemyState ABaseMonster::GetEnemyState_Implementation() const
+{
+	return EEnemyState();
+}
+
+FVector ABaseMonster::GetTargetLocation_Implementation() const
+{
+	return FVector();
+}
+
+bool ABaseMonster::isDead_Implementation() const
+{
+	return false;
+}
+
+bool ABaseMonster::CanTakeCover_Implementation() const
+{
+	return false;
+}
+
+void ABaseMonster::Damage_Implementation(float Damage)
+{
 }
 

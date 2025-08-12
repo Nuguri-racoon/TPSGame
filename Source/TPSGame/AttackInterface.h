@@ -30,7 +30,7 @@ public:
 	bool CanTakeCover() const; 				//엄폐가능여부	
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void Damage(float DamageAmount);			//데미지주기
+	void Damage(float Damage);			//데미지주기
 
 	
 
