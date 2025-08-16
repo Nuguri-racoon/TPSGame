@@ -4,4 +4,5 @@
 
 #include "CoreMinimal.h"
 DECLARE_LOG_CATEGORY_EXTERN(TPSGAME, Log, All)
+#define DEBUG_DRAW
 
