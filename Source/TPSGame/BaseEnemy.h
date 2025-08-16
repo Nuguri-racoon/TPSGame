@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "TPSGame.h"
 #include "GameFramework/Character.h"
 #include "enumEnemyState.h"
 #include "AttackInterface.h"
@@ -29,10 +29,13 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	//Interface
-	void SetEnemyState_Implementation(EEnemyState NewState) override; //현재상변경 시
-	EEnemyState GetEnemyState_Implementation()const override;		  //현재상태 가져오기
-	FVector GetTargetLocation_Implementation()const override;		  //플레이어 위치 
-	bool isDead_Implementation()const override;						  //죽음여부
-	bool CanTakeCover_Implementation()const override;				  //엄폐가능여부
-	void Damage_Implementation(float Damage)override;				  //데미지주기
+	void SetEnemyState_Implementation(EEnemyState NewState) override; 
+	EEnemyState GetEnemyState_Implementation()const override;		 
+	FVector GetTargetLocation_Implementation()const override;		  
+	bool isDead_Implementation()const override;						 
+	bool CanTakeCover_Implementation()const override;				  
+	void Damage_Implementation(float Damage)override;
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void OnAttack();
+	virtual void OnAttack_Implementation() {};
 };

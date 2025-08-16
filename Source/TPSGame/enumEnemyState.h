@@ -2,8 +2,7 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include "TPSGame.h"
 #include "enumEnemyState.generated.h"
 
 UENUM(BlueprintType)
@@ -19,6 +18,15 @@ enum class EEnemyState : uint8
 
 };
 
+UENUM(BlueprintType)
+enum class EEnemyPerception : uint8
+{
+	None UMETA(DisplayName = "None"),
+	Sight UMETA(DisplayName = "Sight"),
+	Hearing UMETA(DisplayName = "Hearing"),
+	Damage UMETA(DisplayName = "Damage"),
+	MAX UMETA(DisplayName = "MAX")
+};
 
 UCLASS()
 class TPSGAME_API AenumEnemyState : public AActor

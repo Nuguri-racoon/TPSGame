@@ -60,4 +60,8 @@ void ABaseEnemy::Damage_Implementation(float Damage)
 {
 }
 
+void ABaseEnemy::OnAttack()
+{
+}
+
 

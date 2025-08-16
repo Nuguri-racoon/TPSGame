@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "TPSGame.h"
 #include "enumEnemyState.h"
 #include "UObject/Interface.h"
 #include "AttackInterface.generated.h"
