@@ -3,6 +3,7 @@
 
 #include "InRangeCheck.h"
 #include "../AI_EnemeyController.h"
+#include "../BaseEnemy.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "../AttackInterface.h"
 
@@ -14,6 +15,8 @@ bool UInRangeCheck::CalculateRawConditionValue(UBehaviorTreeComponent& OwnerCom,
 
 	APawn* AIpawn = AICont->GetPawn();
 	if (AIpawn == nullptr) return false;
+
+	ABaseEnemy* Enemy = Cast<ABaseEnemy>(AIpawn);
 
 	UBlackboardComponent* BlackboardComp = OwnerCom.GetBlackboardComponent();
 	if (!BlackboardComp) return false;

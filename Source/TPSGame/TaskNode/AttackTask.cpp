@@ -4,6 +4,7 @@
 #include "AttackTask.h"
 #include "Animation/AnimInstance.h"
 #include "Animation/AnimMontage.h"   
+#include "../AttackInterface.h"
 #include "../BaseEnemy.h"
 #include "../AI_EnemeyController.h"
 
@@ -13,6 +14,10 @@ EBTNodeResult::Type UAttackTask::ExecuteTask(UBehaviorTreeComponent& OwnerCom, u
 
 	ABaseEnemy* enemy = Cast<ABaseEnemy>(OwnerCom.GetAIOwner()->GetPawn());
 
+	if (enemy && enemy->GetClass()->ImplementsInterface(UAIInter::StaticClass()))
+	{
+		IAIInter::Execute_SetEnemyState(enemy, EEnemyState::Attack);
+	}
 	enemy->OnAttack(); 
 
 	return EBTNodeResult::Succeeded;

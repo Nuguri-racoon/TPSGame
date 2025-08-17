@@ -11,7 +11,7 @@
 #include "BaseEnemy.generated.h"
 
 UCLASS()
-class TPSGAME_API ABaseEnemy : public ACharacter, public IIAIInter
+class TPSGAME_API ABaseEnemy : public ACharacter, public IAIInter
 {
 	GENERATED_BODY()
 
@@ -25,7 +25,7 @@ protected:
 
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
-	EEnemyState CurrentState{ EEnemyState::Idle };
+	EEnemyState CurrentState{ EEnemyState::Idle }; //현재 상태 기계
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float Health{ 100.0f };
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
@@ -42,8 +42,8 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	//Interface
-	void SetEnemyState_Implementation(EEnemyState NewState) override; 
-	EEnemyState GetEnemyState_Implementation()const override;		 
+	void SetEnemyState_Implementation(EEnemyState NewState) override; //상태기계설정하기
+	EEnemyState GetEnemyState_Implementation()const override;		  //상태기계가져오기
 	FVector GetTargetLocation_Implementation()const override;		  
 	bool isDead_Implementation()const override;						 
 	bool CanTakeCover_Implementation()const override;	
