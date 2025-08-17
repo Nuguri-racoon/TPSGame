@@ -4,6 +4,7 @@
 #include "PatrolTask.h"
 #include "../AI_EnemeyController.h"
 #include "NavigationSystem.h"
+#include "../BaseEnemy.h"
 #include "BehaviorTree/BlackboardComponent.h"
 
 
@@ -17,6 +18,7 @@ EBTNodeResult::Type UPatrolTask::ExecuteTask(UBehaviorTreeComponent& OwnerCom, u
 	{
 		return EBTNodeResult::Failed;
 	}
+
 	UNavigationSystemV1* nav = UNavigationSystemV1::GetNavigationSystem(pawn->GetWorld());
 	if(nav == nullptr)
 	{
