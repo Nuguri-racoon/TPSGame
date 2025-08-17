@@ -4,17 +4,15 @@
 
 #include "CoreMinimal.h"
 #include "BehaviorTree/BTTaskNode.h"
-#include "AttackTask.generated.h"
+#include "PatrolTask.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class TPSGAME_API UAttackTask : public UBTTaskNode
+class TPSGAME_API UPatrolTask : public UBTTaskNode
 {
 	GENERATED_BODY()
-
-protected:
-
+public:
 	virtual EBTNodeResult::Type ExecuteTask(UBehaviorTreeComponent& OwnerCom, uint8* NodeMemory) override;
 };

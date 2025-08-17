@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "../TPSGame.h"
 #include "BehaviorTree/BTDecorator.h"
 #include "InRangeCheck.generated.h"
 
