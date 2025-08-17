@@ -47,7 +47,7 @@ AAI_EnemeyController::AAI_EnemeyController()
 
     PerceptComp->ConfigureSense(*sight); //시야 등록
     PerceptComp->SetDominantSense(sight->GetSenseImplementation());
-
+    
     hearing = CreateDefaultSubobject<UAISenseConfig_Hearing>(TEXT("Hearing"));
     hearing->HearingRange = 800.f; //소리 감지 거리 설정
     hearing->SetMaxAge(3.0f); //소리 정보 유효 시간 설정
@@ -81,6 +81,7 @@ void AAI_EnemeyController::OnPossess(APawn* pawn)
 
 #ifdef DEBUG_DRAW
     DrawDebugSphere(GetWorld(), pawn->GetActorLocation(), sight->SightRadius, 20, FColor::Green, false, 5.0f); 
+    DrawDebugSphere(GetWorld(), pawn->GetActorLocation(), hearing->HearingRange, 20, FColor::Green, false, 5.0f); 
     DrawDebugSphere(GetWorld(), pawn->GetActorLocation(), sight->LoseSightRadius, 20, FColor::Red, false, 5.0f);
 #endif
 }

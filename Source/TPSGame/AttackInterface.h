@@ -8,11 +8,11 @@
 #include "AttackInterface.generated.h"
 
 UINTERFACE(MinimalAPI,Blueprintable)
-class UIAIInter : public UInterface
+class UAIInter : public UInterface
 {
 	GENERATED_BODY()
 };
-class IIAIInter
+class IAIInter
 {
 	GENERATED_BODY()
 
