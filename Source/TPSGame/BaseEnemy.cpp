@@ -22,6 +22,16 @@ void ABaseEnemy::BeginPlay()
 void ABaseEnemy::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	if (CurrentState == EEnemyState::Dead)
+	{
+		CurrentDeathTime += DeltaTime;
+		AddActorWorldOffset(FVector(0.0f, 0.0f, -20.0f * DeltaTime));
+
+		if (CurrentDeathTime >= DeathTimer)
+		{
+			Destroy();
+		}
+	}
 
 }
 
@@ -34,21 +44,22 @@ void ABaseEnemy::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 
 void ABaseEnemy::SetEnemyState_Implementation(EEnemyState NewState)
 {
+	CurrentState = NewState;
 }
 
 EEnemyState ABaseEnemy::GetEnemyState_Implementation() const
 {
-	return EEnemyState();
+	return CurrentState;
 }
 
 FVector ABaseEnemy::GetTargetLocation_Implementation() const
 {
-	return FVector();
+	return GetActorLocation();
 }
 
 bool ABaseEnemy::isDead_Implementation() const
 {
-	return false;
+	return CurrentState == EEnemyState::Dead;
 }
 
 bool ABaseEnemy::CanTakeCover_Implementation() const
@@ -58,10 +69,16 @@ bool ABaseEnemy::CanTakeCover_Implementation() const
 
 void ABaseEnemy::Damage_Implementation(float Damage)
 {
+	Health -= Damage;
+	if (Health <= 0.0f)
+	{
+		SetEnemyState(EEnemyState::Dead);
+	}
 }
 
-void ABaseEnemy::OnAttack()
+void ABaseEnemy::OnAttack_Implementation()
 {
 }
+
 
 

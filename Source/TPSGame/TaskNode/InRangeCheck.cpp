@@ -22,6 +22,6 @@ bool UInRangeCheck::CalculateRawConditionValue(UBehaviorTreeComponent& OwnerCom,
 	if (Target == nullptr) return false;
 
 	float dist = FVector::Dist(AIpawn->GetActorLocation(), Target->GetActorLocation());
-	return dist <= 400.f;
+	return dist <= 600.f;
 
 }
