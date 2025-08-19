@@ -81,7 +81,6 @@ void AAI_EnemeyController::OnPossess(APawn* pawn)
 
 #ifdef DEBUG_DRAW
     DrawDebugSphere(GetWorld(), pawn->GetActorLocation(), sight->SightRadius, 20, FColor::Green, false, 5.0f); 
-    DrawDebugSphere(GetWorld(), pawn->GetActorLocation(), hearing->HearingRange, 20, FColor::Green, false, 5.0f); 
     DrawDebugSphere(GetWorld(), pawn->GetActorLocation(), sight->LoseSightRadius, 20, FColor::Red, false, 5.0f);
 #endif
 }

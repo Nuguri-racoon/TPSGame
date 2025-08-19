@@ -31,8 +31,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
 	float DeathTimer{ 3.0f };
 	float CurrentDeathTime{ 0.0f };
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
-	bool isDead{ false };
+	UPROPERTY(BlueprintReadWrite, Category = "AI")
+	bool m_isDead{ false };
 
 public:	
 	// Called every frame
@@ -55,5 +55,5 @@ public:
 	virtual void OnAttack_Implementation();
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UAnimMontage* attMont;
-	bool isMovable = true;
+	bool m_isMovable = true;
 };
